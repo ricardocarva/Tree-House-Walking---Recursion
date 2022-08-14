@@ -1,0 +1,149 @@
+The strategy to test the integrity of the code consisted of some test cases testing the following:
+
+1) Valid inputs considering the pre-conditions.
+2) Invalid inputs considering the pre-conditions
+
+In the Test Case#1, there are only valid elements. The handwritten calculation below illustrates what is expected to occur. 
+
+First, we enumerated the testCases, numTrees, coordinates X and coordinates Y.
+Then, we got the permutations for those test cases.
+Last, had a recursive call to calculate a temporary minimum distance in that combination.
+If that value was lower than the overall distance, it would update the distance value. 
+
+As expected, it matched. So, the first test case passed succesfully.
+
+See below the calculations. The next test cases are described below the illustration.
+
+-----------------------------------------------------------------------------------------
+				 in1.txt
+-----------------------------------------------------------------------------------------
+3 //Test Cases
+1 //pair of trees
+19 -18 //coordinates
+16 -14 //coordinates
+3 //pair of trees
+0 10 //coordinates
+10 0 //coordinates
+10 10 //coordinates
+15 15 //coordinates
+0 0 //coordinates
+-5 -5 //coordinates
+
+------------------------------------------
+		Test Case#1:
+------------------------------------------
+Permutations 1 pair of trees:
+
+			TempDistance Tracker:   	Distance Tracker
+(0 1) 			TempMinDistance: 5.000|		Distance: 340282346638528859811704183484516925440.000
+
+Distance = TempMinDistance: 5.000
+------------------------------------------
+		Test Case#2:
+------------------------------------------
+
+Permutations 3 pair of trees:
+			TempDistance Tracker:   	Distance Tracker
+(0 1) (2 3) (4 5)	TempMinDistance: 28.284		Distance: 340282346638528859811704183484516925440.000
+(0 1) (2 4) (3 5) 	TempMinDistance: 56.569		Distance: 28.284
+(0 1) (2 5) (3 4) 	TempMinDistance: 56.569		Distance: 28.284
+(0 2) (1 3) (4 5) 	TempMinDistance: 32.882		Distance: 28.284
+(0 2) (1 4) (3 5) 	TempMinDistance: 48.284		Distance: 28.284
+(0 2) (1 5) (3 4) 	TempMinDistance: 47.025		Distance: 28.284
+(0 3) (1 2) (4 5) 	TempMinDistance: 32.882		Distance: 28.284
+(0 3) (1 4) (2 5) 	TempMinDistance: 47.025		Distance: 28.284
+(0 3) (1 5) (2 4)	TempMinDistance: 45.765		Distance: 28.284
+(0 4) (1 2) (3 5) 	TempMinDistance: 48.284		Distance: 28.284
+(0 4) (1 3) (2 5) 	TempMinDistance: 47.025		Distance: 28.284
+(0 4) (1 5) (2 3) 	TempMinDistance: 32.882		Distance: 28.284
+(0 5) (1 2) (3 4) 	TempMinDistance: 47.025		Distance: 28.284
+(0 5) (1 3) (2 4) 	TempMinDistance: 45.765		Distance: 28.284
+(0 5) (1 4) (2 3) 	TempMinDistance: 32.882		Distance: 28.284
+
+Distance: 28.284
+
+None of these combinations repeat, and the shortest distance was accurate through all tests.
+
+As expected, it matched. Check out1.txt to see the out put for in1.txt
+
+Testing invalid outputs:
+
+We'll be testing the value of Test Cases. It should be should be a positive integer c (c<=25). If current number of test cases is 26, we
+exit with status 1.
+
+-----------------------------------------------------------------------------------------
+				 in2.txt
+-----------------------------------------------------------------------------------------
+26 //Test Cases supposed to fail
+1 //pair of trees
+19 -18 //coordinates
+16 -14 //coordinates
+3 //pair of trees
+0 10 //coordinates
+10 0 //coordinates
+10 10 //coordinates
+15 15 //coordinates
+0 0 //coordinates
+-5 -5 //coordinates
+
+------------------------------------------
+		Test Case#1:
+------------------------------------------
+
+Test Cases is superior to 25. So, the code will not run.
+
+As expected, the code did not run. Check out2.txt to see the out put for in2.txt
+
+We'll be testing the number of trees in the backyard. It should be a positive integer n (n<=8). If current number of trees in the backyard is 9, we
+exit with status 1.
+
+-----------------------------------------------------------------------------------------
+				 in3.txt
+-----------------------------------------------------------------------------------------
+2 //Test Cases
+9 //pair of trees supposed to fail
+19 -18 //coordinates
+16 -14 //coordinates
+3 //pair of trees
+0 10 //coordinates
+10 0 //coordinates
+10 10 //coordinates
+15 15 //coordinates
+0 0 //coordinates
+-5 -5 //coordinates
+
+------------------------------------------
+		Test Case#1:
+------------------------------------------
+
+Pair of trees is superior to 8. So, the code will not run.
+
+As expected, the code did not run. Check out3.txt to see the out put for in3.txt. 
+
+We'll be testing if the coordinates are acceptable or out of bounds. The ith treetop should  be located at the coordinate (xi, yi), with -10000<=xi, yi <=10000. 
+If a coordinate x or y is out of bounds, we should exit the code with status 1.
+-----------------------------------------------------------------------------------------
+				 in4.txt
+-----------------------------------------------------------------------------------------
+2 //Test Cases
+1 //pair of trees
+19 10001 //coordinate supposed to fail
+16 -14 //coordinates
+3 //pair of trees
+0 10 //coordinates
+10 0 //coordinates
+10 10 //coordinates
+15 15 //coordinates
+0 0 //coordinates
+-5 -5 //coordinates
+
+------------------------------------------
+		Test Case#1:
+------------------------------------------
+
+We have coordinate y at 10001. So, the code will not run.
+
+As expected, the code did not run. Check out4.txt to see the out put for in4.txt
+
+Overall, there were several other tests performed to ensure the code was reliable throughout the code. The code is reliable.
+
